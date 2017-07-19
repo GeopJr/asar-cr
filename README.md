@@ -24,6 +24,13 @@ TODO: Write usage instructions here
 
 TODO: Write development instructions here
 
+## TODO
+
+- [ ] Parse asar archive
+- [ ] Read files from archive
+- [ ] Pack directory into archive
+- [ ] Transform support?
+
 ## Contributing
 
 1. Fork it ( https://github.com/petoem/asar/fork )
