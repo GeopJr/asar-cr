@@ -1,10 +1,12 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "crystal-lang.problems": "syntax",
-    "crystal-lang.implementations": true,
-    "crystal-lang.types": true,
-    "crystal-lang.completion": true,
-    "crystal-lang.mainFile": "src/asar.cr",
+    "crystal-lang.problems": "build",
+    "crystal-lang.maxNumberOfProblems": 10,
+    "crystal-lang.mainFile": "${workspaceRoot}/src/asar.cr",
     "crystal-lang.processesLimit": 3,
-    "crystal-lang.server": true
-}
+    "crystal-lang.implementations": true,
+    "crystal-lang.completion": true,
+    "crystal-lang.types": true,
+    "crystal-lang.server": "/usr/bin/scry",
+    "crystal-lang.logLevel": "error"
+  }
