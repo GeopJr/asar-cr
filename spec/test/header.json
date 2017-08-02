@@ -1,0 +1,20 @@
+{
+    "files": {
+        "assets": {
+            "files": {
+                "image.png": {
+                    "size": 2632,
+                    "offset": "0"
+                },
+                "random.css": {
+                    "size": 58,
+                    "offset": "2632"
+                }
+            }
+        },
+        "hello.txt": {
+            "size": 12,
+            "offset": "2690"
+        }
+    }
+}
