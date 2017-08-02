@@ -63,6 +63,14 @@ module Asar
       file_data
     end
 
+    def files
+      @file_index.keys
+    end
+
+    def files_cached
+      @file_cache.keys
+    end
+
     private def cache_file(path : String, slice : Bytes)
       if @file_cache[path]?
         raise "#{path} is already in cache."
