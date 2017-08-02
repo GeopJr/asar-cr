@@ -23,6 +23,10 @@ require "asar"
 
 asar = Asar::Reader.new "path/to/your/archive.asar"
 io = asar.get "/awesome/image.png"
+slice = asar.get_bytes "/awesome/story.txt"
+
+asar.files # Returns an Array(String) of all files in the archive. 
+asar.files_cached # Returns an Array(String) of all files in the cache. 
 
 ```
 
