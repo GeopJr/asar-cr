@@ -1,5 +1,9 @@
 # asar - Electron Archive format for Crystal
 
+[![GitHub release](https://img.shields.io/github/release/petoem/asar.svg?style=flat-square)](https://github.com/petoem/asar/releases)
+[![Travis](https://img.shields.io/travis/petoem/asar.svg?style=flat-square)](https://travis-ci.org/petoem/asar)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/petoem/asar/blob/master/LICENSE)  
+
 Read files from `.asar` archives with built-in caching.
 
 ## Installation
