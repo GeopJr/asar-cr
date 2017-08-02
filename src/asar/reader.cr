@@ -69,6 +69,5 @@ module Asar
       end
       @file_cache[path] = slice
     end
-
   end
 end
