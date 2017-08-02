@@ -39,6 +39,7 @@ asar.files_cached # Returns an Array(String) of all files in the cache.
 get_bytes   14.9M ( 67.09ns) (± 1.47%)        fastest
  read_raw  69.21k ( 14.45µs) (±16.62%) 215.36× slower
 ```
+> *Note: Benchmark was done on an SSD and the test [file](spec/test/archive/hello.txt) was small.*
 
 The methods `get` and `get_bytes` cache a file at first read.  
 - `get` returns an `IO::Memory` created from the cached file  
