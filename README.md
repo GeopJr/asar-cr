@@ -1,6 +1,6 @@
 # asar - Electron Archive format for Crystal
 
-## **Work In Progress**!
+Read files from `.asar` archives with built-in caching.
 
 ## Installation
 
@@ -16,19 +16,32 @@ dependencies:
 
 ```crystal
 require "asar"
+
+asar = Asar::Reader.new "path/to/your/archive.asar"
+io = asar.get "/awesome/image.png"
+
 ```
 
-TODO: Write usage instructions here
+## Benchmark
 
-## Development
+```
+> crystal run spec/benchmark.cr --release
 
-TODO: Write development instructions here
+      get   3.21M (311.09ns) (±14.27%)   4.64× slower
+get_bytes   14.9M ( 67.09ns) (± 1.47%)        fastest
+ read_raw  69.21k ( 14.45µs) (±16.62%) 215.36× slower
+```
+
+The methods `get` and `get_bytes` cache a file at first read.  
+- `get` returns an `IO::Memory` created from the cached file  
+- `get_bytes` returns the cached file  
+- `read_raw` reads directly from the files `IO`, bypassing the cache  
 
 ## TODO
 
-- [ ] Parse asar archive
-- [ ] Read files from archive
-- [ ] Pack directory into archive
+- [x] Parse asar archive
+- [x] Read files from archive
+- [ ] Pack directory into archive?
 - [ ] Transform support?
 
 ## Contributing
