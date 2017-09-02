@@ -1,5 +1,9 @@
 module Asar
+  # Is responsible for reading and parsing the archive header.
   class Parser
+    # Expects a readable `IO::FileDescriptor` to read the archive header from.
+    # 
+    # Returns a new `Header` populated with the archives header.
     def self.parse(io : IO::FileDescriptor) : Header
       raise "Can't parse, not enough data!" if io.stat.size < 16
       io.rewind

@@ -1,12 +1,20 @@
 require "json"
 
 module Asar
+  # Enables reading of files from the given archive with `#get`, `#get_bytes` and `#read_raw`.
+  # 
+  # Files are cached automatically when using `#get` or `#get_bytes`; data is stored inside a `Hash`.  
+  # Please make sure that you have enough memory.
+  #
+  # Note: When reading from the archive, you have to use absolute paths.
+  # The top level directory of the asar archive is the root. e.g.: `/hello.txt`. Paths are case-sensitive.
   class Reader
     property io : ::File
     property header : Header
     @file_index = {} of String => Asar::File
     @file_cache = {} of String => Bytes
 
+    # Creates a new `Reader` for the given archive file.
     def initialize(@path : String)
       @io = ::File.open @path, "r"
       @header = Asar::Parser.parse @io
@@ -24,6 +32,7 @@ module Asar
       end
     end
 
+    # Returns an `IO::Memory` created from the cached file.
     def get(path : String) : IO::Memory
       unless @file_index[path]?
         raise "#{path} Not found!"
@@ -39,6 +48,7 @@ module Asar
       io
     end
 
+    # Returns the cached file.
     def get_bytes(path : String) : Bytes
       unless @file_index[path]?
         raise "#{path} Not found!"
@@ -51,6 +61,7 @@ module Asar
       file_data
     end
 
+    # Reads directly from the files `IO`, bypassing the cache.
     def read_raw(path : String) : Bytes
       file = @file_index[path]?
       unless file
@@ -63,10 +74,12 @@ module Asar
       file_data
     end
 
+    # Returns an `Array(String)` that contains all files (absolute paths) that are in the archive.
     def files
       @file_index.keys
     end
 
+    # Returns an `Array(String)` of all files in the cache.
     def files_cached
       @file_cache.keys
     end

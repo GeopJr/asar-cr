@@ -1,18 +1,21 @@
 require "json"
 
 module Asar
+  # The same as `Dir` but it represents the top level directory of the asar archive.
   class Archive
     JSON.mapping(
       files: Hash(String, Dir | File)
     )
   end
 
+  # A directory contains other `Dir` or `File` objects. 
   class Dir
     JSON.mapping(
       files: Hash(String, Dir | File)
     )
   end
 
+  # A `File` contains the size, offset and executable flag stored inside the archive header.
   class File
     JSON.mapping(
       size: Int32,
@@ -21,6 +24,7 @@ module Asar
     )
   end
 
+  # `Header` contains the asar archive header data and length.
   struct Header
     getter length : Int32
     getter data : Archive
