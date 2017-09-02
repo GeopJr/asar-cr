@@ -2,8 +2,8 @@ require "json"
 
 module Asar
   # Enables reading of files from the given archive with `#get`, `#get_bytes` and `#read_raw`.
-  # 
-  # Files are cached automatically when using `#get` or `#get_bytes`; data is stored inside a `Hash`.  
+  #
+  # Files are cached automatically when using `#get` or `#get_bytes`; data is stored inside a `Hash`.
   # Please make sure that you have enough memory.
   #
   # Note: When reading from the archive, you have to use absolute paths.

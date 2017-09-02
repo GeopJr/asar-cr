@@ -8,7 +8,7 @@ module Asar
     )
   end
 
-  # A directory contains other `Dir` or `File` objects. 
+  # A directory contains other `Dir` or `File` objects.
   class Dir
     JSON.mapping(
       files: Hash(String, Dir | File)
@@ -26,7 +26,9 @@ module Asar
 
   # `Header` contains the asar archive header data and length.
   struct Header
+    # Header length needed for offset calculation.
     getter length : Int32
+    # Archive that contains `File` and `Dir` information.
     getter data : Archive
 
     def initialize(@data : Archive, @length : Int32)
