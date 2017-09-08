@@ -2,11 +2,7 @@ require "json"
 
 module Asar
   # The same as `Dir` but it represents the top level directory of the asar archive.
-  class Archive
-    JSON.mapping(
-      files: Hash(String, Dir | File)
-    )
-  end
+  alias Archive = Dir
 
   # A directory contains other `Dir` or `File` objects.
   class Dir
