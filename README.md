@@ -76,7 +76,13 @@ The methods `get` and `get_bytes` cache a file at first read.
 
 extract   4.95k (201.90µs) (± 6.65%)  29.5kB/op  fastest
 ```
-> *Note: Couldn't benchmark benchmark_pack.cr due to `Too many open files (File::Error)`
+> *Note: Couldn't benchmark benchmark_pack.cr due to `Too many open files (File::Error)`.*
+
+## What changed?
+
+1. Updated to latest Crystal version
+2. Use of [Path](https://crystal-lang.org/api/latest/Path.html), allowing cross-platform usage.
+3. Added extract and pack functionality.
 
 ## Contributing
 
