@@ -2,12 +2,12 @@ require "json"
 
 module Asar
   # The same as `Dir` but it represents the top level directory of the asar archive.
-  alias Archive = Dir
+  alias Archive = Directory
 
   # A directory contains other `Dir` or `File` objects.
-  class Dir
+  class Directory
     JSON.mapping(
-      files: Hash(String, Dir | File)
+      files: Hash(String, Directory | File | Link)
     )
   end
 
@@ -17,6 +17,13 @@ module Asar
       size: Int32,
       offset: String,
       executable: Bool?
+    )
+  end
+
+  # A `Link` contains the link flag stored inside the archive header.
+  class Link
+    JSON.mapping(
+      link: String
     )
   end
 
