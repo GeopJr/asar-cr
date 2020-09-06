@@ -5,7 +5,7 @@ module Asar
     #
     # Returns a new `Header` populated with the archives header.
     def self.parse(io : IO::FileDescriptor) : Header
-      raise "Can't parse, not enough data!" if io.stat.size < 16
+      raise "Can't parse, not enough data!" if io.info.size < 16
       io.rewind
 
       payload_size = Int32.from_io io, IO::ByteFormat::LittleEndian
