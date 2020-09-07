@@ -1,6 +1,6 @@
 # asar-cr - Electron Archive format for Crystal
 
-[![GitHub release](https://img.shields.io/github/release/GeopJe/asar-cr.svg?style=flat-square)](https://github.com/GeopJr/asar-cr/releases)
+[![GitHub release](https://img.shields.io/github/release/GeopJr/asar-cr.svg?style=flat-square)](https://github.com/GeopJr/asar-cr/releases)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/GeopJr/asar-cr/blob/master/LICENSE)  
 
 Read files from `.asar` archives with built-in caching.
@@ -83,6 +83,10 @@ extract   4.95k (201.90µs) (± 6.65%)  29.5kB/op  fastest
 1. Updated to latest Crystal version
 2. Use of [Path](https://crystal-lang.org/api/latest/Path.html), allowing cross-platform usage.
 3. Added extract and pack functionality.
+
+## Anyone using it?
+
+1. [Crycord](https://github.com/GeopJr/Crycord): A Discord Client mod
 
 ## Contributing
 
