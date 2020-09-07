@@ -13,7 +13,7 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  asar:
+  asar-cr:
     github: GeopJr/asar-cr
 ```
 
