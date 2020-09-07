@@ -75,7 +75,8 @@ module Asar
       io << header
       io << @packed_files
       io.rewind
-      ::File.write("./" + asar.gsub(" ", "_") + (asar.ends_with?(".asar") ? "" : ".asar"), io, mode: "wb")
+      path = Path[asar].expand(home: true).to_s
+      ::File.write(path + (path.ends_with?(".asar") ? "" : ".asar"), io, mode: "wb")
       true
     end
   end
