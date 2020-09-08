@@ -22,7 +22,7 @@ dependencies:
 #### Reading
 
 ```crystal
-require "asar"
+require "asar-cr"
 
 asar = Asar::Reader.new "path/to/your/archive.asar"
 io = asar.get "/awesome/image.png"
@@ -36,7 +36,7 @@ asar.files_cached # Returns an Array(String) of all files in the cache.
 #### Extract
 
 ```crystal
-require "asar"
+require "asar-cr"
 
 asar = Asar::Extract.new "path/to/your/archive.asar"
 
@@ -47,7 +47,7 @@ asar.extract "path/to/your/folder" # Returns true if completed successfully.
 #### Pack
 
 ```crystal
-require "asar"
+require "asar-cr"
 
 asar = Asar::Pack.new "path/to/your/folder"
 
