@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="asar-cr">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="asar-cr">
+  <title>asar-cr master</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          asar-cr
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="asar-cr/Asar" data-name="asar">
+      <a href="Asar.html">Asar</a>
+      
+        <ul>
+  
+  <li class=" " data-id="asar-cr/Asar/Directory" data-name="asar::directory">
+      <a href="Asar/Directory.html">Directory</a>
+      
+    </li>
+  
+  <li class=" " data-id="asar-cr/Asar/Extract" data-name="asar::extract">
+      <a href="Asar/Extract.html">Extract</a>
+      
+    </li>
+  
+  <li class=" " data-id="asar-cr/Asar/File" data-name="asar::file">
+      <a href="Asar/File.html">File</a>
+      
+    </li>
+  
+  <li class=" " data-id="asar-cr/Asar/Header" data-name="asar::header">
+      <a href="Asar/Header.html">Header</a>
+      
+    </li>
+  
+  <li class=" " data-id="asar-cr/Asar/Link" data-name="asar::link">
+      <a href="Asar/Link.html">Link</a>
+      
+    </li>
+  
+  <li class="parent " data-id="asar-cr/Asar/Pack" data-name="asar::pack">
+      <a href="Asar/Pack.html">Pack</a>
+      
+        <ul>
+  
+  <li class=" " data-id="asar-cr/Asar/Pack/HeaderData" data-name="asar::pack::headerdata">
+      <a href="Asar/Pack/HeaderData.html">HeaderData</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="asar-cr/Asar/Parser" data-name="asar::parser">
+      <a href="Asar/Parser.html">Parser</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="asar-cr-electron-archive-format-for-crystal" class="anchor" href="#asar-cr-electron-archive-format-for-crystal">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>asar-cr - Electron Archive format for Crystal</h1>
+
+<p><a href="https://github.com/GeopJr/asar-cr/releases" target="_blank"><img src="https://img.shields.io/github/release/GeopJr/asar-cr.svg?style=flat-square" alt="GitHub release"/></a>
+<a href="https://github.com/GeopJr/asar-cr/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="GitHub license"/></a>  </p>
+
+<p>Read files from <code>.asar</code> archives with built-in caching.</p>
+
+<p>Pack and Unpack to and from <code>.asar</code> archives.</p>
+
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<pre><code class="language-yaml">dependencies:
+  asar-cr:
+    github: GeopJr/asar-cr</code></pre>
+
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+
+<h4><a id="reading" class="anchor" href="#reading">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Reading</h4>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;asar-cr&quot;</span>
+
+asar <span class="o">=</span> <span class="t">Asar</span><span class="t">::</span><span class="t">Reader</span>.<span class="k">new</span> <span class="s">&quot;path/to/your/archive.asar&quot;</span>
+io <span class="o">=</span> asar.get <span class="s">&quot;/awesome/image.png&quot;</span>
+slice <span class="o">=</span> asar.get_bytes <span class="s">&quot;/awesome/story.txt&quot;</span>
+
+asar.files <span class="c"># Returns an Array(String) of all files in the archive.</span>
+asar.files_cached <span class="c"># Returns an Array(String) of all files in the cache.</span>
+</code></pre>
+
+<h4><a id="extract" class="anchor" href="#extract">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Extract</h4>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;asar-cr&quot;</span>
+
+asar <span class="o">=</span> <span class="t">Asar</span><span class="t">::</span><span class="t">Extract</span>.<span class="k">new</span> <span class="s">&quot;path/to/your/archive.asar&quot;</span>
+
+asar.extract <span class="s">&quot;path/to/your/folder&quot;</span> <span class="c"># Returns true if completed successfully.</span>
+</code></pre>
+
+<h4><a id="pack" class="anchor" href="#pack">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Pack</h4>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;asar-cr&quot;</span>
+
+asar <span class="o">=</span> <span class="t">Asar</span><span class="t">::</span><span class="t">Pack</span>.<span class="k">new</span> <span class="s">&quot;path/to/your/folder&quot;</span>
+
+asar.pack <span class="s">&quot;path/to/your/archive.asar&quot;</span> <span class="c"># Returns true if completed successfully.</span>
+</code></pre>
+
+<h2><a id="benchmarks" class="anchor" href="#benchmarks">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Benchmarks</h2>
+
+<pre><code><span class="o">&gt;</span> crystal run spec<span class="s">/benchmark_read.cr --release
+
+      get   9.33M (107.18ns) (± 5.87%)   96.0B/</span>op    <span class="n">3.23</span>× slower
+get_bytes  <span class="n">30.11</span><span class="t">M</span> ( <span class="n">33.22</span>ns) (± <span class="n">1.18</span><span class="o">%</span>)    <span class="n">0.0</span><span class="t">B</span><span class="s">/op         fastest
+ read_raw 280.96k (  3.56µs) (± 6.42%)  8.17kB/</span>op  <span class="n">107.15</span>× slower</code></pre>
+
+<blockquote><em>Note: Benchmark was done on an SSD and the test <a href="spec/test/archive/hello.txt" target="_blank">file</a> was small.</em></blockquote>
+
+<p>The methods <code>get</code> and <code>get_bytes</code> cache a file at first read.  </p>
+
+<ul><li><code>get</code> returns an <code>IO::Memory</code> created from the cached file  </li><li><code>get_bytes</code> returns the cached file  </li><li><code>read_raw</code> reads directly from the files <code>IO</code>, bypassing the cache  </li></ul>
+
+<pre><code><span class="o">&gt;</span> crystal run spec<span class="s">/benchmark_extract.cr --release
+
+extract   4.95k (201.90µs) (± 6.65%)  29.5kB/</span>op  fastest</code></pre>
+
+<blockquote><em>Note: Couldn't benchmark benchmark_pack.cr due to <code>Too many open files (File::Error)</code>.</em></blockquote>
+
+<h2><a id="what-changed" class="anchor" href="#what-changed">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>What changed?</h2>
+
+<ol><li>Updated to latest Crystal version</li><li>Use of <a href="https://crystal-lang.org/api/latest/Path.html" target="_blank">Path</a>, allowing cross-platform usage.</li><li>Added extract and pack functionality.</li></ol>
+
+<h2><a id="anyone-using-it" class="anchor" href="#anyone-using-it">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Anyone using it?</h2>
+
+<ol><li><a href="https://github.com/GeopJr/Crycord" target="_blank">Crycord</a>: A Discord Client mod</li></ol>
+
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+
+<ol><li>Fork it ( https://github.com/GeopJr/asar-cr/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'Add some feature')</li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+
+<ul><li><a href="https://github.com/GeopJr" target="_blank">GeopJr</a> Maintainer</li><li><a href="https://github.com/petoem" target="_blank">petoem</a> Michael Petö - Original Creator</li></ul>
+</div>
+</body>
+</html>
