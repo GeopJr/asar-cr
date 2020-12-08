@@ -1,5 +1,5 @@
 require "benchmark"
-require "../src/asar"
+require "../src/asar-cr"
 
 asar_pack = Asar::Pack.new "spec/test/archive"
 
