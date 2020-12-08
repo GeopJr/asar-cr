@@ -1,0 +1,20 @@
+name: Deploy Docs
+
+on: push
+jobs:
+  deploy:
+    if: "contains(github.event.head_commit.message, '[docs]')"
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: MeilCli/setup-crystal-action@v4.0.1
+      - name: Shards install
+        run: shards install
+      - name: Generate docs
+        run: crystal docs
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          cname: asar-cr.geopjr.xyz
