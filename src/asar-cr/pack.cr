@@ -55,7 +55,7 @@ module Asar
       return (i + m - 1) & ~(m - 1)
     end
 
-    # Packs thw folder into the provided archive.
+    # Packs the folder into the provided archive.
     #
     # Returns `true` if successful.
     def pack(asar : String) : Bool
