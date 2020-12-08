@@ -1,10 +1,10 @@
 name: asar-cr
-version: 1.0.0
+version: 1.1.0
 
 authors:
   - GeopJr <geopjr@geopjr.xyz>
   - Michael Petö <michael@petoe.me>
 
-crystal: 0.34.0
+crystal: 0.35.1
 
 license: MIT
