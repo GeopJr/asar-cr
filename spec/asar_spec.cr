@@ -1,4 +1,5 @@
 require "./spec_helper"
+require "yaml"
 
 describe Asar do
   describe "read" do
@@ -29,6 +30,12 @@ describe Asar do
     it "is true when successful" do
       asar = Asar::Pack.new "spec/test/archive"
       asar.pack("./archive_test.asar").should be_true
+    end
+  end
+
+  describe "version" do
+    it "is the same as in shard.yml when successful" do
+      Asar::VERSION.should eq YAML.parse(File.read("./shard.yml"))["version"]
     end
   end
 end

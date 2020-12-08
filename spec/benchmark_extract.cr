@@ -1,5 +1,5 @@
 require "benchmark"
-require "../src/asar"
+require "../src/asar-cr"
 
 asar_extract = Asar::Extract.new "spec/test/archive.asar"
 

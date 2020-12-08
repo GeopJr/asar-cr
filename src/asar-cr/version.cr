@@ -1,3 +1,5 @@
+require "yaml"
+
 module Asar
-  VERSION = "1.0.0"
+  VERSION = YAML.parse(::File.read("./shard.yml"))["version"]
 end
