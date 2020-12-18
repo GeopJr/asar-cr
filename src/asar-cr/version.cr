@@ -1,5 +1,5 @@
 require "yaml"
 
 module Asar
-  VERSION = YAML.parse(::File.read("./shard.yml"))["version"]
+  VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 end
