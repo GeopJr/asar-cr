@@ -2,7 +2,7 @@ module Asar
   # Enables packing of files from the given archive with `#pack`.
   class Pack
     # A recursive hash used to generate the header
-    alias HeaderData = Hash(String, HeaderData) | String | UInt64
+    alias HeaderData = Hash(String, HeaderData) | String | Int64
     @offset = 0_u64
     @packed_files = ""
     @path : Path
